@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <hr />
+    <h3><a href="/new">Cadastrar Novo Filme</a></h3>
+    <hr />
+    <ul>
+      <% docs.forEach(function(movie){ %>
+        <li>
+          <h2><%= movie.titulo %></h2>
+          <img src=<%= movie.imagem %>>
+          <p><a href="/edit/<%= movie._id %>"> 
+            Editar
+           </a> &nbsp;
+          <a href="/delete/<%= movie._id %>"  onclick="return confirm('Tem certeza que deseja excluir?');"> Deletar </a></p>
+        </li>
+      <% }) %>
+    </ul>
+</body>
+</html>
